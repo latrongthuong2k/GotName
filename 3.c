@@ -1,21 +1,31 @@
 #include <stdio.h>
 
-void Getnum (int *x, int *y, int *z)
+struct no3
 {
-    printf("Get x = "); scanf("%d", x);
-    printf("Get y = "); scanf("%d", y);
-    printf("Get z = "); scanf("%d", z);
+    int x;
+    int y;
+    int z;
+};
+
+typedef struct no3 No3;
+
+void Set (No3 *d)
+{
+    
+    printf("Set x = "); scanf("%d", &d->x);
+    printf("Set y = "); scanf("%d", &d->y);
+    printf("Set z = "); scanf("%d", &d->z);
 }
 
-void Output (int x, int y, int z)
+void Output (No3 d)
 {
-    printf("x = %d, y = %d, z = %d", x, y, z);
+    printf("x = %d, y = %d, z = %d", d.x, d.y, d.z);
 }
 
 int main ()
 {
-    int x, y, z;
-    Getnum(&x, &y, &z);
-    Output(x, y, z);
+    No3 d;
+    Set(&d);
+    Output(d);
     return 0;
 }
