@@ -1,6 +1,10 @@
 #include <stdio.h>
 
-int x, y;
+struct no1 
+{
+public: 
+     int x, y;
+};
 
 int main ()
 {
