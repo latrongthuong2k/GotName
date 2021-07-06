@@ -1,21 +1,29 @@
 #include <stdio.h>
 
-void Getnum (int *x, int *y)
+struct no2
+{
+    int x;
+    int y;
+};
+
+typedef struct no2 No2;
+
+void Set (No2*d)
 {
     
-    printf("Get x = "); scanf("%d", x);
-    printf("Get y = "); scanf("%d", y);
+    printf("Set x = "); scanf("%d", &d->x);
+    printf("Set y = "); scanf("%d", &d->y);
 }
 
-void Ouput (int x, int y)
+void Output (No2 d)
 {
-    printf("x = %d, y = %d", x, y);
+    printf("x = %d, y = %d", d.x, d.y);
 }
 
 int main ()
 {
-    int x, y;
-    Getnum(&x, &y);
-    Output(x, y);
+    No2 d;
+    Set(&d);
+    Output(d);
     return 0;
 }
