@@ -5,15 +5,10 @@
 using namespace std;
 //　課題１：
 /* 
+16
+79
+62
 
-int main()
-{
-printf("%d\n",1011 + 0101);
-printf("%d\n", 110100 + 11011);
-printf("%d", 1011 + 110011);
-return 0;
-}
- 
  */
 
 // 課題２：
