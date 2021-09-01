@@ -3,183 +3,113 @@
 #include <algorithm>
 #include <cmath>
 using namespace std;
-//　課題１：
-/* 
-16
-79
-62
-
- */
-
-// 課題２：
 /*
+1 /
+00101100 + 01010101 = 10000001
+10110000 + 00001111 = 10111111
+2/ 
+00101100 + 01010101 = 129
+10110000 + 00001111 = 191
+3/
+char : 1 bytes
+int : 2 また 4 bytes
+float ：4 bytes
+double ：8 bytes
 
-FF+FF = 510
-ed+10 = 253
-563 + cd = 1584
+4/
+char * : 8 bytes
+int * : 8 bytes
+float *  : 8 bytes
+double * : 8 bytes
+5/ 
+// ② は実行されます。
 
-*/ 
-// 課題３：
-/* 
+6/ 
+int main()
+{
+    int A, B;
+    printf("Get A , B \n");
+    scanf("%d\n",&A);
+    scanf("%d\n",&B);
+   if (A % 2 == 0)
+   {
+       printf(" A + B = %d ", A+B);
+   }else
+   {
+       printf(" A - B = %d ", A-B);
+   }
+return 0;
+}
 
- char = 1byte // -128 to 127
- int = 4 byte // -2,147,483,648 to 2,147,483,647
- float = 4 byte // 3.4E +/- 38 (7 digits)
- double = 8 Byte // 1.7E +/- 308 (15 digits)
+7/ 
+int main()
+{
+    int A, B;
+    bool end = false ;
+    printf("Get A , B \n");
+    do {
+        
+        scanf("%d\n",&A);
+        scanf("%d\n",&B);
+        
+       if (A % 2 == 0)
+       {
+           printf(" A + B = %d\n ", A+B);
+       }else
+       {
+           printf(" A - B = %d\n ", A-B);
+       }
+   }while ( A< 10 && B<10  );
+8/ 
+class Point
+{
+public:
+    Point() { Clear(); }
 
- 
- */
-// 課題４：
-/*
-    ①　は処理されるです。 
- */
-// 課題５：
-/*
- int main()
- {
-    int count = 0;
-    for ( int i = 0; i < 100; i = i + 3)
+    Clear()
     {
-       count++;
-       
+        x = 0;
+        y = 0;
+        z = 0;
     }
-    printf("%d",count);
-    // 答えは： 34 回
-     
- }
-*/
-// 課題６：
+//public:　　＊こちら間違いた、消します 
+    int x, y, z;
+}
 
-/*
- //答えは：
- int main()
- {
-    int i = 0;
-    int count = 0;
-    while (i<100)
+{
+    Point point;
+    Point nextPoint;
+
+    nextPoint.x = 100;
+    nextPoint.y = 30;
+
+    while (1)
     {
-        i = i + 5;
-        if (i<=100)
+        if (point.X < nextPoint.x)
         {
-            count++;
+            point.x++;
+        }
+        else if (point.x > nextPoint.x)
+        {
+            point.x--;
+        }
+
+        if (point.y < nextPoint.y)
+        {
+            point.y++;
+        }
+        else if (point.y > nextPointy)
+        {
+            point.y--;
+        }
+        printf("pointX = %d\n", point.x);
+        printf("pointY = %d\n", point.y);
+
+        if (point.x == nextPoint.x &&
+            point.y == nextPoint.y)
+        {
+            break;
         }
     }
-     printf("%d", count);
-     // 答えは：20回
- }
- 　*/
- 
-// 課題７：
-/*
-array のサイズは２０です
-
- */
-// 課題８：
-/*  
-① は２０です。
- */
-// 課題９：
-/*
- int です。
+}
 */
-
-// 課題10： 
-/* 
-
-struct Ten
-{
-    float x;
-    float y;
-};
-
-float distance(Ten a, Ten b)
-{
-    return sqrt(pow(a.x - b.x, 2) + pow(a.y - b.y, 2));
-}
-
-void Enter (Ten *a, Ten *b)
-{
-    printf("Ten a:\n");
-    printf ("x = "); scanf("%f", &a->x);
-    printf ("y = "); scanf("%f", &a->y);
-    printf("Ten b:\n");
-    printf ("x = "); scanf("%f", &b->x);
-    printf ("y = "); scanf("%f", &b->y);
-}
-int main ()
-{
-    Ten a, b;
-    Enter(&a, &b);
-    printf("aとbの距離は: %0.2f", distance(a, b));
-    return 0;
-}
-
- */
- 
-
-//　課題 11：
-/*
-
-struct Card
-{
-private:
-    int card;
-    char DOC[10];
-public:
-    void set_Card(int, char *);
-    int get_card();
-    char* get_DOC();
-};
-
-void Card::set_Card(int t, char *s)
-{
-    card = t;
-    strcpy(DOC, s);
-}
-
-int Card::get_card()
-{
-    return card;
-}
-
-char* Card::get_DOC()
-{
-    return DOC;
-}
-
-void Enter(Card c[])
-{
-    char g[5][10] = {"spade", "diamond", "heart", "club", "joker"};
-    for (int i = 0; i < 4; i++)
-    for (int j = 0; j < 13; j++)
-    {
-        c[i*13 + j].set_Card(j + 1, g[i]);
-    }
-    c[52].set_Card(14, g[4]);
-}
-
-void Print (Card c[])
-{
-    cout << "Print Card shuffle: " << endl;
-    char g[3][10] = {"jack", "queen", "king"};
-    for (int i = 0; i < 53; i++)
-    {
-        if (c[i].get_card() == 1) cout << "ace " << c[i].get_DOC() << endl;
-        else
-        if (c[i].get_card() <= 10) cout << c[i].get_card() << " " << c[i].get_DOC() << endl;
-        else
-            cout << g[c[i].get_card() - 11] << " " << c[i].get_DOC() << endl;
-    }
-}
-
-int main ()
-{
-    Card c[53];
-    Enter(c);
-    random_shuffle(&c[0], &c[52]);
-    Print(c);
-    return 0;
-}
-
-*/
-
