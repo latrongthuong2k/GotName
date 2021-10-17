@@ -25,7 +25,7 @@ class editor
     
     int get(int getNumArr) 
     {
-        if(sizeofNumber <= 0 || getNumArr > sizeofNumber)
+        if(sizeofNumber < 0 || getNumArr > sizeofNumber)
         {
         printf("out of arr\n");
         }
@@ -34,7 +34,7 @@ class editor
     
     int set(int setNumArr) 
     {
-        if(sizeofNumber <= 0 || setNumArr > sizeofNumber)
+        if(sizeofNumber < 0 || setNumArr > sizeofNumber)
         {
         printf("out of arr\n");
         }
