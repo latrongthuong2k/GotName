@@ -29,7 +29,7 @@ class editor
         {
         printf("out of arr\n");
         }
-            return newArray[getNumArr];   
+            return newArray[0];   
     }
     
     int set(int setNumArr) 
@@ -38,8 +38,7 @@ class editor
         {
         printf("out of arr\n");
         }
-        return newArray[setNumArr] = setNumArr;
-       
+        return newArray[0];
     }   
 };
 
