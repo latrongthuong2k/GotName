@@ -38,7 +38,7 @@ class editor
         {
         printf("out of arr\n");
         }
-        return newArray[setNumArr]= setNumArr
+        return newArray[setNumArr]= setNumArr;
     }   
 };
 
