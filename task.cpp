@@ -21,31 +21,32 @@ class editor
     {
         newArray = new int[numArr];
         sizeofNumber = numArr;
+
     }
-    
     int get(int getNumArr) 
     {
-        if(sizeofNumber < 0 || getNumArr > sizeofNumber)
-        {
-        printf("out of arr\n");
-        }
-            return newArray[getNumArr];   
+        if( sizeofNumber >= 0 && getNumArr < sizeofNumber)
+            return newArray[getNumArr];
+        else 
+            return NULL;
+        
     }
-    
-    int set(int setNumArr) 
+    void set(int setNumArr) 
     {
-        if(sizeofNumber < 0 || setNumArr > sizeofNumber)
-        {
-        printf("out of arr\n");
-        }
-        return newArray[setNumArr]= setNumArr;
-    }   
-};
+        if( sizeofNumber >= 0 && setNumArr < sizeofNumber)
+             newArray[setNumArr] = setNumArr;
+        else 
+            return;
+    }
 
+     
+};
 int main()
 {
     editor test;
+    
     test.Create(1000);
+    
     for (int i = 0; i < 1000; i++)
         {
             test.set(i);
