@@ -1,5 +1,5 @@
 # include <iostream>
-class editor
+/*class editor
 {
     private:
      int* newArray;      
@@ -58,5 +58,49 @@ int main()
             printf("num = %d\n", test.get(i));
         }
     
+
+}
+*/
+class Object
+{
+    public:
+        Object()
+        {
+            x = 1 , y = 1 , z = 1 ;
+        }
+
+    private:
+     int x ,y ,z;
+        virtual void Update(){}
+
+};
+class Vehicle : Object
+{
+    public: Vehicle(){}
+
+         class SpeedUp
+        {
+            public:
+                 SpeedUp()
+                {
+
+                }
+            private:
+        float speed;
+        float axcel;
+        };
+};
+
+class Car : Vehicle
+{
+    public: 
+        Car(){}
+        void ChangeSpeed();
+    private:
+
+};
+
+void Car::ChangeSpeed()
+{
 
 }
