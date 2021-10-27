@@ -83,7 +83,7 @@ class Vehicle : Object
             public:
                  SpeedUp()
                 {
-
+                    speed = speed + axcel;
                 }
             private:
         float speed;
@@ -102,5 +102,5 @@ class Car : Vehicle
 
 void Car::ChangeSpeed()
 {
-
+    speed = 100;
 }
