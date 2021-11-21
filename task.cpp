@@ -15,11 +15,11 @@ public:
 private:
     float x, y, z;
 };
-class ObjectManager : public Object
+class Vehicle : public Object
 {
 public:
      void Update(){}
-    ObjectManager() {
+    Vehicle() {
         speed = 0;
     }
     void setSpeed(float speed);
@@ -27,14 +27,14 @@ public:
 private:
     float speed;
 };
-class Car : public ObjectManager
+class Car : public Vehicle
 {
 public:
 
-    ObjectManager objManager;
+    Vehicle vehicle;
     void setSpeed(float speed)
     {
-    objManager.setSpeed(speed); 
+    vehicle.setSpeed(speed); 
     }
     virtual void Update();
 };
@@ -50,12 +50,12 @@ int main()
     }
 
 }
-void ObjectManager::setSpeed(float speed)
+void Vehicle::setSpeed(float speed)
 {
     this->speed = speed;
 }
 void Car::Update()
 {
     float speed;
-    speed = objManager.getSpeed();
+    speed = vehicle.getSpeed();
 }
