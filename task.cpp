@@ -1,106 +1,58 @@
-# include <iostream>
-/*class editor
+#include <stdio.h>
+
+class Object
 {
-    private:
-     int* newArray;      
-     int sizeofNumber;
+public:
+    Object() { x = 0,
+               y = 0,
+               z = 0; }
+    float getX() { return x; }
+    float getY() { return y; }
+    float getZ() { return z; }
 
-    public:
-        editor()
-        {
-            newArray = nullptr;
-        }
-        ~editor()
-        {
-            delete[] newArray;
-            newArray = nullptr;
-            
-        }
-        //
-    void Create(int numArr)
-    {
-        newArray = new int[numArr];
-        sizeofNumber = numArr;
+  virtual  void Update() {};
 
+private:
+    float x, y, z;
+};
+class ObjectManager : public Object
+{
+public:
+     void Update(){}
+    ObjectManager() {
+        speed = 0;
     }
-    int get(int getNumArr) 
-    {
-        if( sizeofNumber >= 0 && getNumArr < sizeofNumber)
-            return newArray[getNumArr];
-        else 
-            return NULL;
-        
-    }
-    void set(int setNumArr) 
-    {
-        if( sizeofNumber >= 0 && setNumArr < sizeofNumber)
-             newArray[setNumArr] = setNumArr;
-        else 
-            return;
-    }
+    void setSpeed(float speed);
+    float getSpeed() { return speed; }
+private:
+    float speed;
+};
+class Car : public ObjectManager
+{
+public:
 
-     
+    ObjectManager objManager;
+    void setSpeed(float speed) { objManager.setSpeed(speed); }
+    virtual void Update();
 };
 int main()
 {
-    editor test;
-    
-    test.Create(1000);
-    
-    for (int i = 0; i < 1000; i++)
-        {
-            test.set(i);
-            
-        }
-    for (int i = 0; i < 1000; i++)
-        {
-            
-            printf("num = %d\n", test.get(i));
-        }
-    
+    Car car;
+    car.setSpeed(10);
+
+    for (int i = 0; i < 100; i++)
+    {
+        car.Update();
+        printf("update : %d 回\n", i );
+    }
 
 }
-*/
-class Object
+void ObjectManager::setSpeed(float speed)
 {
-    public:
-        Object()
-        {
-            x = 1 , y = 1 , z = 1 ;
-        }
-
-    private:
-     int x ,y ,z;
-        virtual void Update(){}
-
-};
-class Vehicle : Object
+    this->speed = speed;
+}
+void Car::Update()
 {
-    public: Vehicle(){}
-
-         class SpeedUp
-        {
-            public:
-                 SpeedUp()
-                {
-                    speed = speed + axcel;
-                }
-            private:
-        float speed;
-        float axcel;
-        };
-};
-
-class Car : Vehicle
-{
-    public: 
-        Car(){}
-        void ChangeSpeed();
-    private:
-
-};
-
-void Car::ChangeSpeed()
-{
-    speed = 100;
+    float speed;
+    speed = objManager.getSpeed();
 }
