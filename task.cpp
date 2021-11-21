@@ -32,7 +32,10 @@ class Car : public ObjectManager
 public:
 
     ObjectManager objManager;
-    void setSpeed(float speed) { objManager.setSpeed(speed); }
+    void setSpeed(float speed)
+    {
+    objManager.setSpeed(speed); 
+    }
     virtual void Update();
 };
 int main()
@@ -40,7 +43,7 @@ int main()
     Car car;
     car.setSpeed(10);
 
-    for (int i = 0; i < 100; i++)
+    for (int i = 0; i < 10; i++)
     {
         car.Update();
         printf("update : %d 回\n", i );
