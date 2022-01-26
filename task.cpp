@@ -1,61 +1,105 @@
-#include <stdio.h>
+#include <iostream>
+using namespace std;
 
-class Object
-{
-public:
-    Object() { x = 0,
-               y = 0,
-               z = 0; }
-    float getX() { return x; }
-    float getY() { return y; }
-    float getZ() { return z; }
-
-  virtual  void Update() {};
-
+class Mylist {
 private:
-    float x, y, z;
+    int x;
+    int y;
+public:
+    // mondai 1:
+        Mylist(int a , int b){
+        cout<<" input two variable "<<endl;
+        cin>> a>> b;
+        this->x = a;
+        this->y = b;
+    }
+    ~Mylist()
+    {
+    cout<<" mylist is deleted "<< endl;
+    }
+    
+    void display(){
+        cout<<"x = "<< x<<endl;
+        cout<<"y = "<< y<<endl;
+    }
 };
-class Vehicle : public Object
+
+// mondai 3 :
+class Test
 {
 public:
-     void Update(){}
-    Vehicle() {
-        speed = 0;
+    Test()
+    {
+        printf("Test\n");
     }
-    void setSpeed(float speed);
-    float getSpeed() { return speed; }
-private:
-    float speed;
+    ~Test()
+    {
+        printf("~Test\n");
+    }
 };
-class Car : public Vehicle
+class Test2 : public Test
 {
 public:
-
-    Vehicle vehicle;
-    void setSpeed(float speed)
+    Test2()
     {
-    vehicle.setSpeed(speed); 
+        printf("Test2\n");
     }
-    virtual void Update();
+    ~Test2()
+    {
+        printf("~Test2\n");
+    }
 };
-int main()
+// mon dai 4:
+template <typename L>
+L Calc( L a, L b, int type)
 {
-    Car car;
-    car.setSpeed(10);
-
-    for (int i = 0; i < 10; i++)
+    float ans = 0;
+    switch(type)
     {
-        car.Update();
-        printf("update : %d 回\n", i );
+        case 0:
+            ans = a + b;
+            break;
+        case 1:
+            ans = a - b;
+            break;
+        case 2:
+            ans = a * b;
+            break;
+        case 3:
+            ans = a / b;
+            break;
     }
+    
+    return ans;
+}
 
+int main() {
+    //1:
+    Mylist ml(10,20);
+    ml.display();
+    // mondai 2:
+    int *contro1 = new int;
+    char *contro2 = new char[20];
+    delete contro1;
+    delete [] contro2;
+    // mondai 3 :
+    Test* t;
+    t = new Test2();
+    t->~Test();
+    delete t;
+    
+    // mondai 4:
+    int ans1;
+    float ans2;
+    char ans3;
+    
+    ans1 = Calc<int>(2,5,0);
+    ans2 = Calc<float>(10.0f,2.5f,3);
+    ans3 = Calc<char>(10,4,2);
+    // mondai 5 :
+    
+    return 0;
 }
-void Vehicle::setSpeed(float speed)
-{
-    this->speed = speed;
-}
-void Car::Update()
-{
-    float speed;
-    speed = vehicle.getSpeed();
-}
+
+
+
