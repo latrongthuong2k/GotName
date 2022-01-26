@@ -85,7 +85,6 @@ int main() {
     // mondai 3 :
     Test* t;
     t = new Test2();
-    t->~Test();
     delete t;
     
     // mondai 4:
