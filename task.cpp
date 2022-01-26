@@ -32,7 +32,7 @@ public:
     {
         printf("Test\n");
     }
-    ~Test()
+    virtual ~Test()
     {
         printf("~Test\n");
     }
